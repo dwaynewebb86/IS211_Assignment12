@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Add Quiz</h1>
+
+{% if error %}
+    <p style="color:red;">{{ error }}</p>
+{% endif %}
+
+<form action="/quiz/add" method="POST">
+    <p>
+        Subject:<br>
+        <input type="text" name="subject">
+    </p>
+
+    <p>
+        Number of Questions:<br>
+        <input type="number" name="num_questions">
+    </p>
+
+    <p>
+        Quiz Date:<br>
+        <input type="date" name="quiz_date">
+    </p>
+
+    <p>
+        <input type="submit" value="Add Quiz">
+    </p>
+</form>
+
+{% endblock %}
