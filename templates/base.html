@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+<head>
+    <title>Assignment 13</title>
+</head>
+<body>
+
+    {% if session.get("logged_in") %}
+        <p>
+            <a href="/dashboard">Dashboard</a> |
+            <a href="/student/add">Add Student</a> |
+            <a href="/quiz/add">Add Quiz</a> |
+            <a href="/results/add">Add Quiz Result</a> |
+            <a href="/logout">Logout</a>
+        </p>
+        <hr>
+    {% endif %}
+
+    {% block content %}{% endblock %}
+
+</body>
+</html>

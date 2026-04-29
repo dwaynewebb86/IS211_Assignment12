@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Add Quiz Result</h1>
+
+{% if error %}
+    <p style="color:red;">{{ error }}</p>
+{% endif %}
+
+<form action="/results/add" method="POST">
+    <p>
+        Student:<br>
+        <select name="student_id">
+            <option value="">Select a student</option>
+            {% for student in students %}
+                <option value="{{ student['id'] }}">
+                    {{ student["first_name"] }} {{ student["last_name"] }}
+                </option>
+            {% endfor %}
+        </select>
+    </p>
+
+    <p>
+        Quiz:<br>
+        <select name="quiz_id">
+            <option value="">Select a quiz</option>
+            {% for quiz in quizzes %}
+                <option value="{{ quiz['id'] }}">
+                    {{ quiz["subject"] }} - {{ quiz["quiz_date"] }}
+                </option>
+            {% endfor %}
+        </select>
+    </p>
+
+    <p>
+        Score:<br>
+        <input type="number" name="score">
+    </p>
+
+    <p>
+        <input type="submit" value="Add Result">
+    </p>
+</form>
+
+{% endblock %}

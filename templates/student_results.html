@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% if student %}
+
+<h1>Quiz Results for {{ student["first_name"] }} {{ student["last_name"] }}</h1>
+
+{% if results %}
+
+<table border="1">
+    <tr>
+        <th>Quiz ID</th>
+        <th>Subject</th>
+        <th>Quiz Date</th>
+        <th>Score</th>
+    </tr>
+
+    {% for result in results %}
+    <tr>
+        <td>{{ result["quiz_id"] }}</td>
+        <td>{{ result["subject"] }}</td>
+        <td>{{ result["quiz_date"] }}</td>
+        <td>{{ result["score"] }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% else %}
+
+<p>No Results</p>
+
+{% endif %}
+
+{% else %}
+
+<h1>Student Not Found</h1>
+
+{% endif %}
+
+<p><a href="/dashboard">Back to Dashboard</a></p>
+
+{% endblock %}

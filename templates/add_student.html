@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Add Student</h1>
+
+{% if error %}
+    <p style="color:red;">{{ error }}</p>
+{% endif %}
+
+<form action="/student/add" method="POST">
+    <p>
+        First Name:<br>
+        <input type="text" name="first_name">
+    </p>
+
+    <p>
+        Last Name:<br>
+        <input type="text" name="last_name">
+    </p>
+
+    <p>
+        <input type="submit" value="Add Student">
+    </p>
+</form>
+
+{% endblock %}
